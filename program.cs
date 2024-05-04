@@ -5,7 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text.Json;
 using System.Threading;
-using System.Drawing;
+using System.Drawing.Common;
 
 namespace cli_life
 {
@@ -251,7 +251,11 @@ namespace cli_life
            Console.WriteLine("конец");
            Console.WriteLine(numGen-20);
            
-           ScottPlot.Plot myPlot = new();
+          var plt = new ScottPlot.Plot(600, 400);
+          double[] values = { 26, 20, 23, 7, 16 };
+          plt.AddBar(values);
+          plt.SetAxisLimits(yMin: 0);
+          plt.SaveFig("bar_quickstart.png");
 
             
      
